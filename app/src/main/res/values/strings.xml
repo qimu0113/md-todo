@@ -1,0 +1,285 @@
+<resources>
+    <string name="app_name">MD Todo</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Connect your task folder</string>
+    <string name="onboarding_subtitle">Pick the Obsidian folder that stores your markdown task files.</string>
+    <string name="onboarding_choose_folder">Choose folder</string>
+    <string name="onboarding_permission_hint">Todosian only accesses the folder you select. You can change this anytime in Settings.</string>
+    <string name="onboarding_requirements">The selected folder must include at least one .md file.</string>
+    <string name="onboarding_validating">Checking folder…</string>
+
+    <!-- Home -->
+    <string name="home_title">Todosian</string>
+    <string name="home_daily_focus_title">Daily focus</string>
+    <plurals name="home_daily_focus_subtitle_today">
+        <item quantity="one">%1$d task due today</item>
+        <item quantity="other">%1$d tasks due today</item>
+    </plurals>
+    <plurals name="home_daily_focus_subtitle_overdue">
+        <item quantity="one">%1$d overdue task</item>
+        <item quantity="other">%1$d overdue tasks</item>
+    </plurals>
+    <plurals name="home_daily_focus_subtitle_today_overdue">
+        <item quantity="one">%1$d task due today or overdue</item>
+        <item quantity="other">%1$d tasks due today or overdue</item>
+    </plurals>
+    <string name="home_empty_title">No categories yet</string>
+    <string name="home_empty_subtitle">Create a category or choose a different folder.</string>
+    <string name="home_create_category">Create category</string>
+    <string name="home_new_category_title">New category</string>
+    <string name="home_new_category_hint">Category name</string>
+    <string name="home_category_action_rename">Rename</string>
+    <string name="home_category_action_delete">Delete</string>
+    <string name="home_rename_category_title">Rename category</string>
+    <string name="home_rename_category_hint">New name</string>
+    <string name="home_rename_category_error_empty">Name can’t be empty.</string>
+    <string name="home_rename_category_error_invalid_chars">Name contains invalid characters.</string>
+    <string name="home_rename_category_error_sync_conflict">Name must not contain "sync-conflict".</string>
+    <string name="home_delete_category_title">Delete category?</string>
+    <string name="home_delete_category_body">This will delete the markdown file from your selected folder.</string>
+    <string name="home_delete_category_confirm">Delete</string>
+
+    <!-- Category -->
+    <string name="category_empty_title">No todos yet</string>
+    <string name="category_empty_subtitle">Add a task to get started.</string>
+    <string name="category_active">Active</string>
+    <string name="category_completed">Completed</string>
+    <string name="category_add_todo_title">Add todo</string>
+    <string name="category_add_todo_hint">What needs to be done?</string>
+    <string name="category_add_subtask_title">Add subtask</string>
+    <string name="category_add_subtask_hint">Subtask text</string>
+    <string name="category_edit_todo_title">Edit todo</string>
+    <string name="category_edit_todo_hint">Todo text</string>
+    <string name="category_delete_todo_title">Delete todo?</string>
+    <string name="category_delete_todo_body">This action removes the todo from the markdown file.</string>
+    <string name="category_delete_todo_body_with_subtasks">This action removes the todo and its subtasks from the markdown file.</string>
+    <string name="category_delete_todo_body_with_subtask_count">This action removes the todo and its %1$d subtasks from the markdown file.</string>
+    <string name="category_delete_todo_confirm">Delete</string>
+    <string name="category_move_title">Move todo</string>
+    <string name="category_move_body">Choose a category to move this todo to.</string>
+    <string name="category_move_empty">No other categories available.</string>
+    <string name="category_copy_show">Show copy options</string>
+    <string name="category_copy_hide">Hide copy options</string>
+    <string name="category_move_success">Todo moved.</string>
+    <string name="category_copy_success">Todo copied.</string>
+    <string name="category_move_subtask_disabled">Subtasks can’t be moved.</string>
+
+    <string name="category_tasks_metadata_title">Tasks metadata</string>
+    <string name="category_tasks_created">➕ Created</string>
+    <string name="category_tasks_due">📅 Due</string>
+    <string name="category_tasks_start">🛫 Start</string>
+    <string name="category_tasks_scheduled">⏳ Scheduled</string>
+    <string name="category_tasks_done">✅ Done</string>
+    <string name="category_tasks_priority">Priority</string>
+    <string name="category_tasks_recurrence">🔁 Recurrence</string>
+
+    <string name="category_tasks_created_label">Created</string>
+    <string name="category_tasks_due_label">Due</string>
+    <string name="category_tasks_start_label">Start</string>
+    <string name="category_tasks_scheduled_label">Scheduled</string>
+    <string name="category_tasks_done_label">Done</string>
+    <string name="category_tasks_recurrence_label">Recurrence</string>
+
+    <string name="category_tasks_priority_none">None</string>
+    <string name="category_tasks_priority_lowest">⏬ Lowest</string>
+    <string name="category_tasks_priority_low">🔽 Low</string>
+    <string name="category_tasks_priority_medium">🔼 Medium</string>
+    <string name="category_tasks_priority_high">⏫ High</string>
+    <string name="category_tasks_priority_highest">🔺 Highest</string>
+
+    <string name="category_tasks_priority_lowest_label">Lowest</string>
+    <string name="category_tasks_priority_low_label">Low</string>
+    <string name="category_tasks_priority_medium_label">Medium</string>
+    <string name="category_tasks_priority_high_label">High</string>
+    <string name="category_tasks_priority_highest_label">Highest</string>
+
+    <string name="category_tasks_chip_created">➕ %1$s</string>
+    <string name="category_tasks_chip_start">🛫 %1$s</string>
+    <string name="category_tasks_chip_scheduled">⏳ %1$s</string>
+    <string name="category_tasks_chip_due">📅 %1$s</string>
+    <string name="category_tasks_chip_done">✅ %1$s</string>
+    <string name="category_tasks_chip_recurrence">🔁 %1$s</string>
+
+    <string name="category_tasks_chip_created_label">%1$s</string>
+    <string name="category_tasks_chip_start_label">%1$s</string>
+    <string name="category_tasks_chip_scheduled_label">%1$s</string>
+    <string name="category_tasks_chip_due_label">%1$s</string>
+    <string name="category_tasks_chip_done_label">%1$s</string>
+    <string name="category_tasks_chip_recurrence_label">%1$s</string>
+
+    <!-- Common actions -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_set">Set</string>
+    <string name="action_clear">Clear</string>
+
+    <!-- Content descriptions -->
+
+
+    <string name="home_category_all_done">All done</string>
+    <string name="home_category_no_todos">No todos yet</string>
+    <string name="home_new_category_folder_hint">Use / to nest, e.g. Study/Math</string>
+<string name="home_folder_all">All</string>
+    <string name="search_hint">Search tasks, #tags, 10-24</string>
+    <string name="search_empty">No matching tasks</string>
+    <string name="search_idle">Type to search</string>
+    <string name="cd_search">Search</string>
+    <string name="cd_switch_to_list">Switch to list view</string>
+    <string name="cd_switch_to_grid">Switch to grid view</string>
+    <string name="cd_open_settings">Open settings</string>
+    <string name="cd_overflow_menu">More options</string>
+    <string name="cd_add_category">Add category</string>
+    <string name="cd_add_todo">Add todo</string>
+    <string name="cd_add_subtask">Add subtask</string>
+    <string name="cd_expand_subtasks">Expand subtasks</string>
+    <string name="cd_collapse_subtasks">Collapse subtasks</string>
+    <string name="cd_navigate_back">Navigate back</string>
+    <string name="cd_delete">Delete</string>
+
+    <!-- Errors -->
+    <string name="error_folder_empty">The selected folder has no markdown (.md) files.</string>
+    <string name="error_folder_invalid">Could not access the selected folder.</string>
+    <string name="error_permission_lost">Folder permission expired. Please grant access again in settings.</string>
+    <string name="error_folder_unavailable">Folder not found. It may have been deleted, renamed, or is temporarily unavailable.</string>
+    <string name="category_load_failed_title">Could not load this file</string>
+    <string name="action_retry">Retry</string>
+    <string name="error_read_failed">Could not read the file.</string>
+    <string name="error_write_failed">Could not save your changes.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+
+    <string name="settings_storage">Storage</string>
+    <string name="settings_folder">Selected folder</string>
+    <string name="settings_no_folder">No folder selected</string>
+    <string name="settings_change_folder">Change folder</string>
+    <string name="settings_change_folder_subtitle">Choose a different Obsidian todo folder.</string>
+    <string name="settings_recheck_access">Re-check access</string>
+    <string name="settings_recheck_access_subtitle">Verify the app can still read this folder.</string>
+    <string name="settings_reset_folder">Reset folder</string>
+    <string name="settings_reset_folder_title">Reset folder selection?</string>
+    <string name="settings_reset_folder_body">You’ll be taken back to setup and will need to choose a folder again.</string>
+    <string name="settings_reset_folder_confirm">Reset</string>
+    <string name="settings_folder_updated">Folder updated.</string>
+
+    <string name="settings_status">Status</string>
+    <string name="settings_status_not_set">Not set</string>
+    <string name="settings_status_checking">Checking…</string>
+    <string name="settings_status_permission_lost">Permission lost</string>
+    <string name="settings_status_unknown">Unknown</string>
+    <string name="settings_status_empty">No .md files found</string>
+    <plurals name="settings_status_ok">
+        <item quantity="one">%1$d markdown file</item>
+        <item quantity="other">%1$d markdown files</item>
+    </plurals>
+
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_theme_mode">Theme</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_dynamic_color">Dynamic color</string>
+    <string name="settings_dynamic_color_subtitle">Use system-derived colors (Android 12+).</string>
+    <string name="settings_dynamic_color_unavailable">Available on Android 12+ only.</string>
+
+    <string name="settings_behaviour">Behaviour</string>
+    <string name="settings_show_daily_focus">Daily focus banner</string>
+    <string name="settings_show_daily_focus_subtitle">Show remaining tasks on the Home screen.</string>
+    <string name="settings_daily_focus_mode">Daily focus content</string>
+    <string name="settings_daily_focus_mode_today">Today</string>
+    <string name="settings_daily_focus_mode_overdue">Overdue</string>
+    <string name="settings_daily_focus_mode_today_overdue">Today and overdue</string>
+    <string name="settings_category_sort">Category sorting</string>
+    <string name="settings_sort_az">A–Z</string>
+    <string name="settings_sort_remaining">Most remaining</string>
+    <string name="settings_todo_grouping">Todo ordering</string>
+    <string name="settings_grouping_grouped">Grouped (Active/Completed)</string>
+    <string name="settings_grouping_file_order">File order</string>
+    <string name="settings_todo_sort">Todo sorting</string>
+    <string name="settings_todo_sort_file_order">File order</string>
+    <string name="settings_todo_sort_priority_desc">Priority (high to low)</string>
+    <string name="settings_todo_sort_created_newest">Created date (newest first)</string>
+    <string name="settings_todo_sort_due_earliest">Due date (earliest first)</string>
+    <string name="settings_new_todo_file_position">Add new todos</string>
+    <string name="settings_new_todo_file_position_top">Top of file</string>
+    <string name="settings_new_todo_file_position_bottom">Bottom of file</string>
+
+    <string name="settings_enable_tasks_plugin_support">Enable Tasks Plugin Support</string>
+    <string name="settings_enable_tasks_plugin_support_subtitle">Parse and edit Obsidian Tasks metadata (dates, priority, recurrence).</string>
+
+    <string name="settings_tasks_plugin_ui_emojis">Use emojis in UI</string>
+    <string name="settings_tasks_plugin_ui_emojis_subtitle">Show Tasks metadata as emojis instead of icons.</string>
+
+    <string name="settings_enable_subtasks">Enable subtasks</string>
+    <string name="settings_enable_subtasks_subtitle">Allow adding subtasks to todos.</string>
+    <string name="settings_notification_permission_denied">Notifications are disabled, so due reminders cannot be shown.</string>
+
+    <string name="settings_reminder_time">Reminder time</string>
+    <string name="settings_reminder_time_subtitle">Remind me about due-soon tasks every day at %1$s. (might not be on time)</string>
+    <string name="action_ok">OK</string>
+
+    <!-- Notifications -->
+    <string name="notification_due_channel_name">Due reminders</string>
+    <string name="notification_due_channel_description">Reminds you when tasks are close to their due date.</string>
+    <plurals name="notification_due_title">
+        <item quantity="one">%1$d task due soon</item>
+        <item quantity="other">%1$d tasks due soon</item>
+    </plurals>
+    <string name="notification_due_body_single">%1$s is due %2$s.</string>
+    <plurals name="notification_due_body_multi">
+        <item quantity="one">Next due %1$s. Tap to review %2$d task.</item>
+        <item quantity="other">Next due %1$s. Tap to review %2$d tasks.</item>
+    </plurals>
+    <string name="notification_due_when_overdue">overdue</string>
+    <string name="notification_due_when_today">today</string>
+    <string name="notification_due_when_tomorrow">tomorrow</string>
+    <plurals name="notification_due_when_in_days">
+        <item quantity="one">in %1$d day</item>
+        <item quantity="other">in %1$d days</item>
+    </plurals>
+
+    <string name="settings_about">About</string>
+    <string name="settings_version">App version</string>
+    <string name="settings_android_sdk">Android SDK</string>
+
+    <!-- Daily Focus screen -->
+    <string name="daily_focus_screen_title">Daily focus</string>
+    <string name="daily_focus_empty_title">Nothing due right now</string>
+    <string name="daily_focus_empty_subtitle">Tasks matching your focus mode will appear here.</string>
+
+    <!-- Changelog / What's new -->
+    <string name="changelog_title">What’s new in Todosian</string>
+    <string name="changelog_subtitle">Version %1$s</string>
+    <string name="changelog_dismiss">Got it</string>
+    <string name="changelog_thanks_to_prefix">"Thanks to "</string>
+    <string name="settings_whats_new">What’s new</string>
+    <string name="settings_whats_new_subtitle">View recent updates and changes</string>
+
+    <!-- Widget -->
+    <string name="widget_name">Todosian</string>
+    <string name="widget_description">Displays your tasks and lets you quickly manage them from the home screen.</string>
+    <string name="widget_no_tasks">No pending tasks</string>
+    <string name="widget_no_folder">Open app to select task folder</string>
+    <string name="widget_add_task">Add task</string>
+    <string name="widget_refresh">Refresh tasks</string>
+    <string name="widget_add_task_name">Add task</string>
+    <string name="widget_add_task_description">Quickly add a task to any of your categories.</string>
+
+    <!-- Add task flow -->
+    <string name="add_task_picker_title">Add task</string>
+    <string name="add_task_picker_subtitle">Choose a category to add the task to</string>
+    <string name="add_task_picker_empty_title">No categories found</string>
+    <string name="add_task_picker_empty_subtitle">Open Todosian and create a category first.</string>
+
+    <!-- Home FAB menu + manual focus pin -->
+    <string name="fab_new_todo">New task</string>
+    <string name="fab_new_category">New category</string>
+    <string name="cd_fab_menu_open">Open create menu</string>
+    <string name="cd_fab_menu_close">Close create menu</string>
+    <string name="focus_pin_add_action">Add tasks to focus</string>
+    <string name="focus_pin_sheet_title">Add to daily focus</string>
+    <string name="focus_pin_sheet_hint">Pinned tasks always appear in daily focus, regardless of due date.</string>
+    <string name="focus_pin_sheet_empty">No open tasks</string>
+    <string name="focus_pin_current_badge">Pinned</string>
+</resources>

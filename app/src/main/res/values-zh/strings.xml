@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MD Todo</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">连接你的任务文件夹</string>
+    <string name="onboarding_subtitle">选择存放 Markdown 任务文件的 Obsidian 文件夹。</string>
+    <string name="onboarding_choose_folder">选择文件夹</string>
+    <string name="onboarding_permission_hint">MD Todo 只会访问你选择的文件夹，可随时在设置中更改。</string>
+    <string name="onboarding_requirements">所选文件夹中至少要有一个 .md 文件。</string>
+    <string name="onboarding_validating">正在检查文件夹…</string>
+
+    <!-- Home -->
+    <string name="home_title">MD Todo</string>
+    <string name="home_daily_focus_title">今日聚焦</string>
+    <plurals name="home_daily_focus_subtitle_today">
+        <item quantity="one">%1$d 个任务今天到期</item>
+        <item quantity="other">%1$d 个任务今天到期</item>
+    </plurals>
+    <plurals name="home_daily_focus_subtitle_overdue">
+        <item quantity="one">%1$d 个任务已逾期</item>
+        <item quantity="other">%1$d 个任务已逾期</item>
+    </plurals>
+    <plurals name="home_daily_focus_subtitle_today_overdue">
+        <item quantity="one">%1$d 个任务今天到期或已逾期</item>
+        <item quantity="other">%1$d 个任务今天到期或已逾期</item>
+    </plurals>
+    <string name="home_empty_title">还没有分类</string>
+    <string name="home_empty_subtitle">创建一个分类，或换一个文件夹。</string>
+    <string name="home_create_category">创建分类</string>
+    <string name="home_new_category_title">新建分类</string>
+    <string name="home_new_category_hint">分类名称</string>
+    <string name="home_category_action_rename">重命名</string>
+    <string name="home_category_action_delete">删除</string>
+    <string name="home_rename_category_title">重命名分类</string>
+    <string name="home_rename_category_hint">新名称</string>
+    <string name="home_rename_category_error_empty">名称不能为空。</string>
+    <string name="home_rename_category_error_invalid_chars">名称含有无效字符。</string>
+    <string name="home_rename_category_error_sync_conflict">名称不能包含 "sync-conflict"。</string>
+    <string name="home_delete_category_title">删除分类？</string>
+    <string name="home_delete_category_body">这会删除你所选文件夹中的 Markdown 文件。</string>
+    <string name="home_delete_category_confirm">删除</string>
+
+    <!-- Category -->
+    <string name="category_empty_title">还没有待办</string>
+    <string name="category_empty_subtitle">添加一个任务开始吧。</string>
+    <string name="category_active">进行中</string>
+    <string name="category_completed">已完成</string>
+    <string name="category_add_todo_title">添加待办</string>
+    <string name="category_add_todo_hint">要做什么？</string>
+    <string name="category_add_subtask_title">添加子任务</string>
+    <string name="category_add_subtask_hint">子任务内容</string>
+    <string name="category_edit_todo_title">编辑待办</string>
+    <string name="category_edit_todo_hint">待办内容</string>
+    <string name="category_delete_todo_title">删除待办？</string>
+    <string name="category_delete_todo_body">这会从 Markdown 文件中移除该待办。</string>
+    <string name="category_delete_todo_body_with_subtasks">这会从 Markdown 文件中移除该待办及其子任务。</string>
+    <string name="category_delete_todo_body_with_subtask_count">这会从 Markdown 文件中移除该待办及其 %1$d 个子任务。</string>
+    <string name="category_delete_todo_confirm">删除</string>
+    <string name="category_move_title">移动待办</string>
+    <string name="category_move_body">选择要把这个待办移动到的分类。</string>
+    <string name="category_move_empty">没有其他可用分类。</string>
+    <string name="category_copy_show">显示复制选项</string>
+    <string name="category_copy_hide">隐藏复制选项</string>
+    <string name="category_move_success">待办已移动。</string>
+    <string name="category_copy_success">待办已复制。</string>
+    <string name="category_move_subtask_disabled">子任务无法移动。</string>
+
+    <string name="category_tasks_metadata_title">Tasks 元数据</string>
+    <string name="category_tasks_created">➕ 创建</string>
+    <string name="category_tasks_due">📅 截止</string>
+    <string name="category_tasks_start">🛫 开始</string>
+    <string name="category_tasks_scheduled">⏳ 计划</string>
+    <string name="category_tasks_done">✅ 完成</string>
+    <string name="category_tasks_priority">优先级</string>
+    <string name="category_tasks_recurrence">🔁 重复</string>
+
+    <string name="category_tasks_created_label">创建</string>
+    <string name="category_tasks_due_label">截止</string>
+    <string name="category_tasks_start_label">开始</string>
+    <string name="category_tasks_scheduled_label">计划</string>
+    <string name="category_tasks_done_label">完成</string>
+    <string name="category_tasks_recurrence_label">重复</string>
+
+    <string name="category_tasks_priority_none">无</string>
+    <string name="category_tasks_priority_lowest">⏬ 最低</string>
+    <string name="category_tasks_priority_low">🔽 低</string>
+    <string name="category_tasks_priority_medium">🔼 中</string>
+    <string name="category_tasks_priority_high">⏫ 高</string>
+    <string name="category_tasks_priority_highest">🔺 最高</string>
+
+    <string name="category_tasks_priority_lowest_label">最低</string>
+    <string name="category_tasks_priority_low_label">低</string>
+    <string name="category_tasks_priority_medium_label">中</string>
+    <string name="category_tasks_priority_high_label">高</string>
+    <string name="category_tasks_priority_highest_label">最高</string>
+
+    <string name="category_tasks_chip_created">➕ %1$s</string>
+    <string name="category_tasks_chip_start">🛫 %1$s</string>
+    <string name="category_tasks_chip_scheduled">⏳ %1$s</string>
+    <string name="category_tasks_chip_due">📅 %1$s</string>
+    <string name="category_tasks_chip_done">✅ %1$s</string>
+    <string name="category_tasks_chip_recurrence">🔁 %1$s</string>
+
+    <string name="category_tasks_chip_created_label">%1$s</string>
+    <string name="category_tasks_chip_start_label">%1$s</string>
+    <string name="category_tasks_chip_scheduled_label">%1$s</string>
+    <string name="category_tasks_chip_due_label">%1$s</string>
+    <string name="category_tasks_chip_done_label">%1$s</string>
+    <string name="category_tasks_chip_recurrence_label">%1$s</string>
+
+    <!-- Common actions -->
+    <string name="action_save">保存</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_set">设置</string>
+    <string name="action_clear">清除</string>
+
+    <!-- Content descriptions -->
+
+
+    <string name="home_category_all_done">全部完成</string>
+    <string name="home_category_no_todos">暂无待办</string>
+    <string name="home_new_category_folder_hint">可用 / 建子文件夹，例如 学习/高数</string>
+<string name="home_folder_all">全部</string>
+    <string name="search_hint">搜索任务、#标签、10-24</string>
+    <string name="search_empty">没有找到相关任务</string>
+    <string name="search_idle">输入关键字开始搜索</string>
+    <string name="cd_search">搜索</string>
+    <string name="cd_switch_to_list">切换到列表</string>
+    <string name="cd_switch_to_grid">切换到宫格</string>
+    <string name="cd_open_settings">打开设置</string>
+    <string name="cd_overflow_menu">更多选项</string>
+    <string name="cd_add_category">添加分类</string>
+    <string name="cd_add_todo">添加待办</string>
+    <string name="cd_add_subtask">添加子任务</string>
+    <string name="cd_expand_subtasks">展开子任务</string>
+    <string name="cd_collapse_subtasks">收起子任务</string>
+    <string name="cd_navigate_back">返回</string>
+    <string name="cd_delete">删除</string>
+
+    <!-- Errors -->
+    <string name="error_folder_empty">所选文件夹中没有 Markdown（.md）文件。</string>
+    <string name="error_folder_invalid">无法访问所选文件夹。</string>
+    <string name="error_permission_lost">文件夹权限已失效，请重新授权。</string>
+    <string name="error_folder_unavailable">找不到文件夹，可能已被删除、重命名，或暂时不可用。</string>
+    <string name="category_load_failed_title">读取失败</string>
+    <string name="action_retry">重试</string>
+    <string name="error_read_failed">无法读取文件。</string>
+    <string name="error_write_failed">无法保存更改。</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+
+    <string name="settings_storage">存储</string>
+    <string name="settings_folder">已选文件夹</string>
+    <string name="settings_no_folder">未选择文件夹</string>
+    <string name="settings_change_folder">更换文件夹</string>
+    <string name="settings_change_folder_subtitle">选择另一个 Obsidian 待办文件夹。</string>
+    <string name="settings_recheck_access">重新检查访问权限</string>
+    <string name="settings_recheck_access_subtitle">确认应用仍能读取此文件夹。</string>
+    <string name="settings_reset_folder">重置文件夹</string>
+    <string name="settings_reset_folder_title">重置文件夹选择？</string>
+    <string name="settings_reset_folder_body">你会回到初始设置，需要重新选择文件夹。</string>
+    <string name="settings_reset_folder_confirm">重置</string>
+    <string name="settings_folder_updated">文件夹已更新。</string>
+
+    <string name="settings_status">状态</string>
+    <string name="settings_status_not_set">未设置</string>
+    <string name="settings_status_checking">正在检查…</string>
+    <string name="settings_status_permission_lost">权限已失效</string>
+    <string name="settings_status_unknown">未知</string>
+    <string name="settings_status_empty">未找到 .md 文件</string>
+    <plurals name="settings_status_ok">
+        <item quantity="one">%1$d 个 Markdown 文件</item>
+        <item quantity="other">%1$d 个 Markdown 文件</item>
+    </plurals>
+
+    <string name="settings_appearance">外观</string>
+    <string name="settings_theme_mode">主题</string>
+    <string name="settings_theme_system">跟随系统</string>
+    <string name="settings_theme_light">浅色</string>
+    <string name="settings_theme_dark">深色</string>
+    <string name="settings_dynamic_color">动态取色</string>
+    <string name="settings_dynamic_color_subtitle">使用系统提供的配色（Android 12+）。</string>
+    <string name="settings_dynamic_color_unavailable">仅 Android 12 及以上支持。</string>
+
+    <string name="settings_behaviour">行为</string>
+    <string name="settings_show_daily_focus">今日聚焦横幅</string>
+    <string name="settings_show_daily_focus_subtitle">在主界面显示剩余任务。</string>
+    <string name="settings_daily_focus_mode">今日聚焦内容</string>
+    <string name="settings_daily_focus_mode_today">今天</string>
+    <string name="settings_daily_focus_mode_overdue">已逾期</string>
+    <string name="settings_daily_focus_mode_today_overdue">今天及逾期</string>
+    <string name="settings_category_sort">分类排序</string>
+    <string name="settings_sort_az">A–Z</string>
+    <string name="settings_sort_remaining">剩余最多</string>
+    <string name="settings_todo_grouping">待办分组</string>
+    <string name="settings_grouping_grouped">按状态分组（进行中/已完成）</string>
+    <string name="settings_grouping_file_order">文件顺序</string>
+    <string name="settings_todo_sort">待办排序</string>
+    <string name="settings_todo_sort_file_order">文件顺序</string>
+    <string name="settings_todo_sort_priority_desc">优先级（高到低）</string>
+    <string name="settings_todo_sort_created_newest">创建时间（最新优先）</string>
+    <string name="settings_todo_sort_due_earliest">截止时间（最早优先）</string>
+    <string name="settings_new_todo_file_position">新建待办位置</string>
+    <string name="settings_new_todo_file_position_top">文件顶部</string>
+    <string name="settings_new_todo_file_position_bottom">文件底部</string>
+
+    <string name="settings_enable_tasks_plugin_support">启用 Tasks 插件支持</string>
+    <string name="settings_enable_tasks_plugin_support_subtitle">解析并编辑 Obsidian Tasks 元数据（日期、优先级、重复）。</string>
+
+    <string name="settings_tasks_plugin_ui_emojis">界面使用 Emoji</string>
+    <string name="settings_tasks_plugin_ui_emojis_subtitle">用 Emoji 代替图标显示 Tasks 元数据。</string>
+
+    <string name="settings_enable_subtasks">启用子任务</string>
+    <string name="settings_enable_subtasks_subtitle">允许为待办添加子任务。</string>
+    <string name="settings_notification_permission_denied">通知已关闭，无法显示截止提醒。</string>
+
+    <string name="settings_reminder_time">提醒时间</string>
+    <string name="settings_reminder_time_subtitle">每天 %1$s 提醒我即将到期的任务。（可能不会准时）</string>
+    <string name="action_ok">确定</string>
+
+    <!-- Notifications -->
+    <string name="notification_due_channel_name">截止提醒</string>
+    <string name="notification_due_channel_description">任务临近截止日期时提醒你。</string>
+    <plurals name="notification_due_title">
+        <item quantity="one">%1$d 个任务即将到期</item>
+        <item quantity="other">%1$d 个任务即将到期</item>
+    </plurals>
+    <string name="notification_due_body_single">%1$s 将于%2$s到期。</string>
+    <plurals name="notification_due_body_multi">
+        <item quantity="one">下一个到期：%1$s。点按查看 %2$d 个任务。</item>
+        <item quantity="other">下一个到期：%1$s。点按查看 %2$d 个任务。</item>
+    </plurals>
+    <string name="notification_due_when_overdue">已逾期</string>
+    <string name="notification_due_when_today">今天</string>
+    <string name="notification_due_when_tomorrow">明天</string>
+    <plurals name="notification_due_when_in_days">
+        <item quantity="one">%1$d 天后</item>
+        <item quantity="other">%1$d 天后</item>
+    </plurals>
+
+    <string name="settings_about">关于</string>
+    <string name="settings_version">应用版本</string>
+    <string name="settings_android_sdk">Android SDK</string>
+
+    <!-- Daily Focus screen -->
+    <string name="daily_focus_screen_title">今日聚焦</string>
+    <string name="daily_focus_empty_title">暂时没有到期任务</string>
+    <string name="daily_focus_empty_subtitle">符合当前聚焦模式的任务会显示在这里。</string>
+
+    <!-- Changelog / What's new -->
+    <string name="changelog_title">MD Todo 更新内容</string>
+    <string name="changelog_subtitle">版本 %1$s</string>
+    <string name="changelog_dismiss">知道了</string>
+    <string name="changelog_thanks_to_prefix">"感谢 "</string>
+    <string name="settings_whats_new">更新内容</string>
+    <string name="settings_whats_new_subtitle">查看近期更新与改动</string>
+
+    <!-- Widget -->
+    <string name="widget_name">MD Todo</string>
+    <string name="widget_description">在主界面显示你的任务，可快速管理。</string>
+    <string name="widget_no_tasks">没有待处理任务</string>
+    <string name="widget_no_folder">打开应用以选择任务文件夹</string>
+    <string name="widget_add_task">添加任务</string>
+    <string name="widget_refresh">刷新任务</string>
+    <string name="widget_add_task_name">添加任务</string>
+    <string name="widget_add_task_description">快速向任意分类添加任务。</string>
+
+    <!-- Add task flow -->
+    <string name="add_task_picker_title">添加任务</string>
+    <string name="add_task_picker_subtitle">选择要添加到的分类</string>
+    <string name="add_task_picker_empty_title">未找到分类</string>
+    <string name="add_task_picker_empty_subtitle">先打开 MD Todo 并创建一个分类。</string>
+
+    <!-- 首页加号菜单 + 手动聚焦 -->
+    <string name="fab_new_todo">新建待办</string>
+    <string name="fab_new_category">新建分类</string>
+    <string name="cd_fab_menu_open">打开新建菜单</string>
+    <string name="cd_fab_menu_close">关闭新建菜单</string>
+    <string name="focus_pin_add_action">手动添加聚焦任务</string>
+    <string name="focus_pin_sheet_title">加入今日聚焦</string>
+    <string name="focus_pin_sheet_hint">选中的任务不受到期日期限制，会一直出现在今日聚焦里。再点一次可移出。</string>
+    <string name="focus_pin_sheet_empty">没有未完成的任务</string>
+    <string name="focus_pin_current_badge">已固定</string>
+</resources>

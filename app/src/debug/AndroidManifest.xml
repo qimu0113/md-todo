@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      MD Todo：原项目在这里注册了 TestNotificationReceiver，
+      配合 TestNotificationReceiver.kt 用于调试通知提醒（需 DUMP 权限）。
+      随通知模块整体移除，故该 receiver 与对应类一并删除。
+      debug 源集现在没有任何额外组件。
+    -->
+
+</manifest>

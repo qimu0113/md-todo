@@ -1,0 +1,179 @@
+package com.mdtodo.data.settings
+
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.core.content.edit
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+
+interface AppSettingsRepository {
+    val settings: Flow<AppSettings>
+
+    fun setThemeMode(themeMode: ThemeMode)
+    fun setDynamicColorEnabled(enabled: Boolean)
+
+    fun setShowDailyFocus(enabled: Boolean)
+    fun setDailyFocusMode(mode: DailyFocusMode)
+    fun setCategorySort(sort: CategorySort)
+    fun setCategoryLayout(mode: CategoryLayoutMode)
+    fun setTodoGrouping(grouping: TodoGrouping)
+    fun setTodoSort(sort: TodoSort)
+    fun setNewTodoFilePosition(position: NewTodoFilePosition)
+
+    fun setEnableTasksPluginSupport(enabled: Boolean)
+
+    fun setTasksPluginUseEmojisInUi(enabled: Boolean)
+
+    fun setEnableSubtasks(enabled: Boolean)
+
+    fun setReminderTime(hour: Int, minute: Int)
+}
+
+class SharedPrefsAppSettingsRepository(
+    context: Context,
+) : AppSettingsRepository {
+    private val prefs: SharedPreferences =
+        context.applicationContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+    override val settings: Flow<AppSettings> = callbackFlow {
+        fun sendCurrent() {
+            trySend(readSettings()).isSuccess
+        }
+
+        val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
+            sendCurrent()
+        }
+
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+        sendCurrent()
+
+        awaitClose {
+            prefs.unregisterOnSharedPreferenceChangeListener(listener)
+        }
+    }.distinctUntilChanged()
+
+    override fun setThemeMode(themeMode: ThemeMode) {
+        prefs.edit { putString(KEY_THEME_MODE, themeMode.name) }
+    }
+
+    override fun setDynamicColorEnabled(enabled: Boolean) {
+        prefs.edit { putBoolean(KEY_DYNAMIC_COLOR, enabled) }
+    }
+
+    override fun setShowDailyFocus(enabled: Boolean) {
+        prefs.edit { putBoolean(KEY_SHOW_DAILY_FOCUS, enabled) }
+    }
+
+    override fun setDailyFocusMode(mode: DailyFocusMode) {
+        prefs.edit { putString(KEY_DAILY_FOCUS_MODE, mode.name) }
+    }
+
+    override fun setCategorySort(sort: CategorySort) {
+        prefs.edit { putString(KEY_CATEGORY_SORT, sort.name) }
+    }
+
+    override fun setCategoryLayout(mode: CategoryLayoutMode) {
+        prefs.edit { putString(KEY_CATEGORY_LAYOUT, mode.name) }
+    }
+
+    override fun setTodoGrouping(grouping: TodoGrouping) {
+        prefs.edit { putString(KEY_TODO_GROUPING, grouping.name) }
+    }
+
+    override fun setTodoSort(sort: TodoSort) {
+        prefs.edit { putString(KEY_TODO_SORT, sort.name) }
+    }
+
+    override fun setNewTodoFilePosition(position: NewTodoFilePosition) {
+        prefs.edit { putString(KEY_NEW_TODO_FILE_POSITION, position.name) }
+    }
+
+    override fun setEnableTasksPluginSupport(enabled: Boolean) {
+        prefs.edit { putBoolean(KEY_TASKS_PLUGIN, enabled) }
+    }
+
+    override fun setTasksPluginUseEmojisInUi(enabled: Boolean) {
+        prefs.edit { putBoolean(KEY_TASKS_PLUGIN_UI_EMOJIS, enabled) }
+    }
+
+    override fun setEnableSubtasks(enabled: Boolean) {
+        prefs.edit { putBoolean(KEY_SUBTASKS, enabled) }
+    }
+
+    override fun setReminderTime(hour: Int, minute: Int) {
+        prefs.edit {
+            putInt(KEY_REMINDER_TIME_HOUR, hour)
+            putInt(KEY_REMINDER_TIME_MINUTE, minute)
+        }
+    }
+
+    private fun readSettings(): AppSettings {
+        val themeMode = prefs.getString(KEY_THEME_MODE, null)?.let { raw ->
+            runCatching { ThemeMode.valueOf(raw) }.getOrNull()
+        } ?: ThemeMode.SYSTEM
+
+        val categorySort = prefs.getString(KEY_CATEGORY_SORT, null)?.let { raw ->
+            runCatching { CategorySort.valueOf(raw) }.getOrNull()
+        } ?: CategorySort.A_Z
+
+        val categoryLayout = prefs.getString(KEY_CATEGORY_LAYOUT, null)?.let { raw ->
+            runCatching { CategoryLayoutMode.valueOf(raw) }.getOrNull()
+        } ?: CategoryLayoutMode.GRID
+
+        val todoGrouping = prefs.getString(KEY_TODO_GROUPING, null)?.let { raw ->
+            runCatching { TodoGrouping.valueOf(raw) }.getOrNull()
+        } ?: TodoGrouping.GROUPED
+
+        val todoSort = prefs.getString(KEY_TODO_SORT, null)?.let { raw ->
+            runCatching { TodoSort.valueOf(raw) }.getOrNull()
+        } ?: TodoSort.FILE_ORDER
+
+        val newTodoFilePosition = prefs.getString(KEY_NEW_TODO_FILE_POSITION, null)?.let { raw ->
+            runCatching { NewTodoFilePosition.valueOf(raw) }.getOrNull()
+        } ?: NewTodoFilePosition.BOTTOM
+
+        return AppSettings(
+            themeMode = themeMode,
+            dynamicColorEnabled = prefs.getBoolean(KEY_DYNAMIC_COLOR, true),
+            showDailyFocus = prefs.getBoolean(KEY_SHOW_DAILY_FOCUS, true),
+            dailyFocusMode = prefs.getString(KEY_DAILY_FOCUS_MODE, null)?.let { raw ->
+                runCatching { DailyFocusMode.valueOf(raw) }.getOrNull()
+            } ?: DailyFocusMode.TODAY,
+            categorySort = categorySort,
+            categoryLayout = categoryLayout,
+            todoGrouping = todoGrouping,
+            todoSort = todoSort,
+            newTodoFilePosition = newTodoFilePosition,
+            enableTasksPluginSupport = prefs.getBoolean(KEY_TASKS_PLUGIN, false),
+            tasksPluginUseEmojisInUi = prefs.getBoolean(KEY_TASKS_PLUGIN_UI_EMOJIS, false),
+            enableSubtasks = prefs.getBoolean(KEY_SUBTASKS, false),
+            reminderTimeHour = prefs.getInt(KEY_REMINDER_TIME_HOUR, 19),
+            reminderTimeMinute = prefs.getInt(KEY_REMINDER_TIME_MINUTE, 0),
+        )
+    }
+
+    private companion object {
+        private const val PREFS_NAME = "todosian_settings"
+
+        private const val KEY_THEME_MODE = "theme_mode"
+        private const val KEY_DYNAMIC_COLOR = "dynamic_color"
+        private const val KEY_SHOW_DAILY_FOCUS = "show_daily_focus"
+        private const val KEY_DAILY_FOCUS_MODE = "daily_focus_mode"
+        private const val KEY_CATEGORY_SORT = "category_sort"
+        private const val KEY_CATEGORY_LAYOUT = "category_layout"
+        private const val KEY_TODO_GROUPING = "todo_grouping"
+        private const val KEY_TODO_SORT = "todo_sort"
+        private const val KEY_NEW_TODO_FILE_POSITION = "new_todo_file_position"
+
+        private const val KEY_TASKS_PLUGIN = "tasks_plugin_support"
+
+        private const val KEY_TASKS_PLUGIN_UI_EMOJIS = "tasks_plugin_ui_emojis"
+
+        private const val KEY_SUBTASKS = "enable_subtasks"
+
+        private const val KEY_REMINDER_TIME_HOUR = "reminder_time_hour"
+        private const val KEY_REMINDER_TIME_MINUTE = "reminder_time_minute"
+    }
+}
