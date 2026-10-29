@@ -98,7 +98,10 @@ fun ContainerTransformPage(
         return
     }
 
-    val progress = remember { Animatable(0f) }
+    // 必须把 origin 作为 key：覆盖层在同一个 composition 位置被复用时，
+    // remember 会沿用上一次的 Animatable，进度还停在上次的 1f，
+    // 结果就是「新页面直接满屏、动画完全不见」。
+    val progress = remember(origin) { Animatable(0f) }
     val scope = rememberCoroutineScope()
     var exiting by remember { mutableStateOf(false) }
 
@@ -117,7 +120,8 @@ fun ContainerTransformPage(
     // 系统返回手势 / 返回键也走收回动画，而不是让 NavHost 直接硬 pop。
     BackHandler(enabled = !exiting) { requestBack() }
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(origin) {
+        progress.snapTo(0f)
         progress.animateTo(
             targetValue = 1f,
             animationSpec = tween(durationMillis = 320, easing = FastOutSlowInEasing),
@@ -130,7 +134,14 @@ fun ContainerTransformPage(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.55f * progress.value)),
+            // 遮罩要**快速到位**而不是随进度线性加深：
+            // 页面自己的背景色和首页背景色是同一个值，卡片画上去之后边界本来就不存在，
+            // 全靠这层遮罩把首页压暗才有「卡片浮起来」的感觉。
+            .background(
+                Color.Black.copy(
+                    alpha = 0.62f * (progress.value * 2.5f).coerceAtMost(1f),
+                ),
+            ),
     ) {
         Box(
             modifier = Modifier
